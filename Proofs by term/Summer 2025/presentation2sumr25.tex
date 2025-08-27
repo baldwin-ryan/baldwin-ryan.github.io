@@ -1,0 +1,292 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This file is a template using the "beamer" package to create slides for a talk or presentation
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+% MODIFIED by Jonathan Kew, 2008-07-06
+% The header comments and encoding in this file were modified for inclusion with TeXworks.
+% The content is otherwise unchanged from the original distributed with the beamer package.
+
+\documentclass{beamer}
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU General Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+  \usetheme{Antibes}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+  
+  % (Removed duplicate \documentclass and preamble packages)
+  % % If you want to keep color definitions and beamer color settings, move them outside this block.
+
+  % TO AUTOCOMMENT OUT, Ctrl-/slash
+  % \definecolor{mqred}{RGB}{166, 25, 46}
+  % \definecolor{mqdeepred}{RGB}{118, 35, 47} blue
+  % \definecolor{mqgray}{RGB}{55, 58, 54}
+  % \definecolor{mqlightgray}{RGB}{237, 235, 229}
+  % \definecolor{mqmagenta}{RGB}{198, 0, 126}
+  % \definecolor{dark-green}{RGB}{0, 100, 0}
+  % \usecolortheme[named=mqred]{structure}
+  % \setbeamercolor{title in head/foot}{bg=mqlightgray, fg=mqgray}
+  % \setbeamercolor{author in head/foot}{bg=mqdeepred}
+\definecolor{myblue}{RGB}{30, 60, 114}
+\definecolor{mydeepblue}{RGB}{15, 32, 65}
+\definecolor{mygray}{RGB}{55, 58, 54}
+\definecolor{mylightgray}{RGB}{237, 235, 229}
+\definecolor{mycyan}{RGB}{0, 180, 216}
+\definecolor{dark-green}{RGB}{0, 100, 0}
+\usecolortheme[named=myblue]{structure}
+\setbeamercolor{title in head/foot}{bg=mylightgray, fg=mygray}
+\setbeamercolor{author in head/foot}{bg=mydeepblue}
+\setbeamercolor{page number in head/foot}{bg=mydeepblue, fg=mylightgray}
+}
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[utf8]{inputenc}
+% or whatever
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+
+\title[A Discussion on Symmetry and Awesome Sets] % (optional, use only with long paper titles)
+{A Discussion on Symmetry and Awesome Sets}
+
+\subtitle
+{An Introduction to the Isometries of \texorpdfstring{$\mathbb{R}^3$}{R3}}
+
+\author[Ryan Baldwin] % (optional, use only with lots of authors)
+{R. Baldwin}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Swarthmore College] % (optional, but mostly needed)
+{
+  \inst{}%
+  Math/Stat Department\\
+  Swarthmore College
+}
+\date[CFP 2025] % (optional, should be abbreviation of conference name)
+{Swarthmore College}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{Math}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+\section{Motivation}
+
+\subsection{A Reminder on the Definition}
+
+\begin{frame}
+  \frametitle{What are $aba$-sets?}
+  \framesubtitle{Also known as "awesome"-sets, A-sets}
+
+  \begin{alertblock}{Definition}
+     Let $G$ be a group. \newline
+     A set $S \subseteq G$ is an $aba$-$set$ if for all $a,b \in S$, $aba \in S$.
+  \end{alertblock}
+
+  \begin{itemize}
+  \item Previous results:
+  \begin{itemize}
+  
+  \pause  
+  \item If $x \in S$ is an element of odd order, then $\langle x \rangle \in S$.
+  \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{How much can these sets generate?}
+  Questions to consider:
+
+  \begin{itemize}
+  \pause
+  \item Can an $aba$-set with only generators and the identity recover the whole group?
+  \pause
+  \item Is there a more geometric quality that $aba$-sets induce?\newline
+  \end{itemize}
+
+  \pause
+  Let's looks at an example to further explore this!
+\end{frame}
+
+\subsection{Motivating Example}
+
+\begin{frame}{The Dihedral Group \hfill \makebox[216pt][r]{$\forall a,b\in S,\ aba \in S$}}
+  \begin{example}
+    Let $S = \{1, \sigma, \zeta\} \subset D_n$ be a set with property $aba$-closure. What must follow is that $S$ must contain ('generate') all powers of the flips and rotations.
+  \end{example}
+
+  \pause
+  \begin{proof}
+    \begin{itemize}
+      \pause
+      \item Flips have order 2, meaning $\sigma = \sigma^{-1} \in S$ a priori.
+      \pause
+      \item We can \alert{build-up} all powers of $zeta$ through different recursive combinations with the identity.\newline 
+      For example, $\zeta 1 \zeta = \zeta^2$ and $\zeta \zeta \zeta = \zeta^3$ and so forth.
+      \item Thus, we can generate all powers of the flip-$\sigma$ and rotation-$\zeta$ elements.
+    \end{itemize}
+  \end{proof}
+\end{frame}
+
+\section{Discussion}
+
+\subsection{\texorpdfstring{$D_n$}{Dn} and Isometries of \texorpdfstring{$\mathbb{R}^3$}{R3}}
+\begin{frame}{Subgroups of $\mathbb{R}^3$ \hfill \makebox[238pt][r]{$\forall a,b\in S,\ aba \in S$}}
+  To find groups similar to the dihedral group, let's impose firm positions on the vertices of $D_n$ on a plane.\newline
+
+  \pause
+  In other words, let us look at what \alert{space} $D_n$ lives in!
+
+\end{frame}
+
+
+\begin{frame}{Subgroups of $\mathbb{R}^3$ \hfill \makebox[238pt][r]{$\forall a,b\in S,\ aba \in S$}}
+  \begin{itemize}
+    \pause
+    \item The dihedral groups are all $subgroups$ of the group of rotations in $\mathbb{R}^3$ (SO3).
+    \pause
+    \item Other examples of finite subgroups of SO3 are" \textcolor{dark-green}{cyclic, tetrahedral, octohedral group}.\newline
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Another Interesting Example \hfill \makebox[184pt][r]{$\forall a,b\in S,\ aba \in S$}}
+\setbeamercolor{block body}{bg=dark-green!10}
+\setbeamercolor{block title}{bg=dark-green, fg=white}
+  \begin{block}{Remark}
+    Recall that if $|x|$ is odd and in $S$, $\langle x \rangle \in S$. 
+    \pause
+    We can extend this to \textit{any} cyclic subgroup, so long as we start with the identity! That is to say:\newline
+
+    Let $x \in G$ have finite order. If $\{1, x\} \in S$, then $\langle x \rangle \in S$.\newline 
+    
+    Furthermore, if $G$ is a cyclic group, then the entire group is an $aba$-\textit{group!}
+  \end{block}
+\end{frame}
+\begin{frame}{Make Titles Informative.}
+\end{frame}
+
+\begin{frame}{Make Titles Informative.}
+\end{frame}
+
+\begin{frame}{Make Titles Informative.}
+\end{frame}
+
+
+\subsection{Ideas Moving Forward}
+
+\begin{frame}{Groups to Inspect}
+  \begin{itemize}
+    \item Focus on investigating the $aba$-sets of subgroups and semi-direct products of primarily $\mathbb{R}^3$ (a topic for next week).
+    \pause
+    \item Observe if there is any correlation between said $aba$ sets (specifically with sets only containing the generators and identity of these groups).
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Programming}
+  \begin{itemize}
+    \item Working on code that will speed up the process of finding $aba$-sets.
+
+
+    \item *Potentially attempt to create a 3D program that may enumerate any \textit{geometric} qualities of $aba$-sets.
+
+
+  \end{itemize}
+\end{frame}
+
+
+\section*{Concluding Remarks}
+
+\begin{frame}{Summary}
+
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item
+    I am now not only investigating $aba$-sets from an algebraic viewpoint, but seeing if the \alert{space} where a group lives in induces a constraint in algebraic results.\newline
+ 
+
+  \pause
+  \item
+    Observing how $aba$-sets act on symmetries may lead into questions like how much of an original group is guaranteed to be \alert{encoded} in an $aba$-set.\newline
+
+  \pause
+
+  \item
+    While larger conjectures in $\mathbb{R}^n$ would be awesome, I will likely continue to work with grups in $\mathbb{R}^2$ and $\mathbb{R}^3$ due to some computational concerns (things get \textit{big} and confusing).
+
+
+    
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{center}
+    {\Huge Thank you!}
+  \end{center}
+
+  
+
+\end{frame}
+
+\end{document}
+
+
